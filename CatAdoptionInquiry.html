@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Field Inventory</title>
+        <style>
+        body{
+            font-family:Arial,sans-serif;
+            line-height:1.5;
+            max-width:80rem;
+            margin:auto;
+            padding:1rem;
+            color:#191919;
+        }
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+        th,td{
+            padding:.6rem;
+            border:1px solid #999;
+            text-align:left;
+            vertical-align:top;
+        }
+        th{
+            background:#f1f1f1;
+        }
+        </style>
+        </head>
+        <body>
+            <h1>F2 · Task and Data Plan</h1>
+
+  <p><strong>Task:</strong> A fictional shelter's initial cat adoption inquiry. The form helps staff understand the applicant's preferences and arrange a follow-up. It is not a final adoption application and does not collect real data.</p>
+
+  <p>Fields marked required are necessary for a useful initial inquiry. All testing uses fictional information.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Visible label / question</th>
+          <th>Why necessary now?</th>
+          <th>Required?</th>
+          <th>Native control/type</th>
+          <th>Submitted name/value</th>
+          <th>Autocomplete/inputmode</th>
+          <th>Constraint/instruction</th>
+          <th>Sensitivity and minimization decision</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Full name</td>
+          <td>Know how to address the person during follow-up.</td>
+          <td>Yes</td>
+          <td>input type="text"</td>
+          <td>full_name</td>
+          <td>name</td>
+          <td>Required; use a fictional name in tests.</td>
+          <td>Basic contact detail; no identity documents requested.</td>
+        </tr>
+        <tr>
+          <td>Email address</td>
+          <td>Send a follow-up about available cats.</td>
+          <td>Yes</td>
+          <td>input type="email"</td>
+          <td>email</td>
+          <td>email</td>
+          <td>Required; browser checks email format.</td>
+          <td>Contact information; no phone number or address collected.</td>
+        </tr>
+        <tr>
+          <td>Preferred contact time</td>
+          <td>Help staff choose an appropriate time to reply.</td>
+          <td>No</td>
+          <td>select</td>
+          <td>contact_time=morning / afternoon / evening</td>
+          <td>N/A</td>
+          <td>Optional; choose one time period.</td>
+          <td>Preference only; no exact schedule required.</td>
+        </tr>
+        <tr>
+          <td>Preferred cat age</td>
+          <td>Help match the inquiry to suitable cats.</td>
+          <td>Yes</td>
+          <td>select</td>
+          <td>cat_age=kitten / adult / senior / any</td>
+          <td>N/A</td>
+          <td>Required; choose one option.</td>
+          <td>Non-sensitive adoption preference.</td>
+        </tr>
+        <tr>
+          <td>Interested in a specific cat?</td>
+          <td>Let staff identify the cat if the person has one in mind.</td>
+          <td>No</td>
+          <td>input type="text"</td>
+          <td>cat_name</td>
+          <td>off</td>
+          <td>Optional; leave blank if undecided.</td>
+          <td>Only a cat's name; no extra personal information.</td>
+        </tr>
+        <tr>
+          <td>How many cats already live in your home?</td>
+          <td>Understand the existing pet environment.</td>
+          <td>Yes</td>
+          <td>input type="number"</td>
+          <td>current_cats</td>
+          <td>N/A; inputmode="numeric"</td>
+          <td>Required; whole number 0–20, step 1.</td>
+          <td>Household pet count, not personal identity information.</td>
+        </tr>
+        <tr>
+          <td>Other pets in your home</td>
+          <td>Help staff consider introductions with other animals.</td>
+          <td>No</td>
+          <td>checkboxes</td>
+          <td>other_pets=dog / small_animal / other</td>
+          <td>N/A</td>
+          <td>Optional; select all that apply, or none.</td>
+          <td>Only pet categories; no detailed household history.</td>
+        </tr>
+        <tr>
+          <td>Housing situation</td>
+          <td>Identify whether a follow-up about pet policies may be useful.</td>
+          <td>Yes</td>
+          <td>radio buttons</td>
+          <td>housing=own / rent / other</td>
+          <td>N/A</td>
+          <td>Required; select one.</td>
+          <td>Broad category only; no landlord or financial information.</td>
+        </tr>
+        <tr>
+          <td>Are cats permitted where you live?</td>
+          <td>Identify a practical adoption consideration.</td>
+          <td>Yes</td>
+          <td>radio buttons</td>
+          <td>cats_allowed=yes / no / unsure</td>
+          <td>N/A</td>
+          <td>Required; select one.</td>
+          <td>No proof or lease documents collected.</td>
+        </tr>
+        <tr>
+          <td>When would you like to adopt?</td>
+          <td>Help staff prioritize follow-up timing.</td>
+          <td>Yes</td>
+          <td>select</td>
+          <td>timeline=soon / one_to_three_months / exploring</td>
+          <td>N/A</td>
+          <td>Required; choose one timeframe.</td>
+          <td>General timing rather than a personal calendar.</td>
+        </tr>
+        <tr>
+          <td>Would you like information about introducing a cat to your home?</td>
+          <td>Offer relevant guidance during follow-up.</td>
+          <td>No</td>
+          <td>input type="checkbox"</td>
+          <td>intro_guidance=yes</td>
+          <td>N/A</td>
+          <td>Optional; unchecked means no request.</td>
+          <td>Simple support preference.</td>
+        </tr>
+        <tr>
+          <td>Anything else we should know?</td>
+          <td>Allow a short optional clarification about the cat or household.</td>
+          <td>No</td>
+          <td>textarea</td>
+          <td>message</td>
+          <td>N/A</td>
+          <td>Optional; maximum 240 characters. Do not include sensitive details.</td>
+          <td>Length-limited; explicitly discourage private or medical information.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

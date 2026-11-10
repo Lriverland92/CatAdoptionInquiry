@@ -1,0 +1,214 @@
+
+:root{
+    --color-text:#404040;
+    --color-surface:#fff;
+    --color-action:#8c1d40;
+    --color-accent:#ffc627;
+    --color-border:#747474;
+    --color-error:#b3261e;
+    --color-success:#287a42;
+    --color-muted:#5c6670;
+    --color-background:#f8f5f2;
+    --space-3:1rem;
+    --radius:.5rem;
+    --measure:68ch;
+}
+*,*::before,*::after{
+    box-sizing:border-box;
+}
+html{
+    font-size:100%;
+}
+body{
+    margin:0;
+    color:var(--color-text);
+    background:var(--color-background);
+    font-family:Arial,sans-serif;
+    line-height:1.6;
+}
+h1,h2,h3{
+    line-height:1.3;
+}
+h2{
+    color:var(--color-action);
+}
+a{
+    color:var(--color-action);
+    text-underline-offset:.2em;
+}
+.page-header{
+    padding:clamp(2rem,6vw,5rem);
+    background:var(--color-action);
+    color:#fff;
+}
+.eyebrow{
+    color:var(--color-accent);
+    font-weight:700;
+}
+.lede{
+    max-width:var(--measure);
+    font-size:1.25rem;
+}
+main{
+    max-width:52rem;
+    margin:auto;
+    padding:var(--space-3);
+}
+section,form{
+    margin-block:2rem;
+}
+#expectations,#planning,#requirements,#states,#documentation{
+    padding:1.5rem;
+    background:var(--color-surface);
+    border-radius:var(--radius);
+}
+form,fieldset,.field{
+    display:grid;
+    gap:.65rem;
+}
+form{
+    gap:1.5rem;
+}
+fieldset{
+    min-width:0;
+    padding:1rem;
+    border:1px solid #d0d0d0;
+    border-radius:var(--radius);
+    background:var(--color-surface);
+}
+legend,label{
+    font-weight:700;
+}
+legend{
+    padding:0 .35rem;
+    color:var(--color-action);
+}
+.field{
+    min-width:0;
+}
+.help{
+    margin:0;
+    color:var(--color-muted);
+}
+input,select,textarea,button{
+    font:inherit;
+}
+input:not([type="radio"]):not([type="checkbox"]),select,textarea{
+    width:100%;
+    min-width:0;
+    min-height:44px;
+    padding:.75rem;
+    border:2px solid var(--color-border);
+    border-radius:.25rem;
+    background:var(--color-surface);
+    color:var(--color-text);
+}
+textarea{
+    min-height:8rem;
+    resize:vertical;
+}
+.choice-group{
+    gap:.5rem;
+    background:#fafafa;
+}
+.choice{
+    display:flex;
+    gap:.65rem;
+    align-items:flex-start;
+    min-height:44px;
+    padding:.5rem;
+    font-weight:400;
+    cursor:pointer;
+}
+.choice input{
+    inline-size:1.25rem;
+    block-size:1.25rem;
+    flex-shrink:0;
+    margin:.2rem 0 0;
+    accent-color:var(--color-action);
+}
+button{
+    justify-self:start;
+    min-height:44px;
+    max-width:100%;
+    padding:.75rem 1rem;
+    background:var(--color-action);
+    color:#fff;
+    border:2px solid var(--color-action);
+    border-radius:.25rem;
+    font-weight:700;
+    cursor:pointer;
+}
+button:hover:not(:disabled){
+    background:#68152f;
+}
+:focus-visible{
+    outline:.2rem solid var(--color-accent);
+    outline-offset:.2rem;
+}
+input:focus-visible,select:focus-visible,textarea:focus-visible{
+    border-color:var(--color-action);
+}
+input:required:not([type="radio"]):not([type="checkbox"]),select:required{
+    border-left:4px solid var(--color-action);
+}
+input:required:valid:not([type="radio"]):not([type="checkbox"]),select:required:valid{
+    border-color:var(--color-success);
+}
+input:user-invalid:not([type="radio"]):not([type="checkbox"]),select:user-invalid,textarea:user-invalid{
+    border-color:var(--color-error);
+    background:#fff8f7;
+}
+input:user-invalid[type="radio"],input:user-invalid[type="checkbox"]{
+    outline:2px solid var(--color-error);
+    outline-offset:2px;
+}
+.error-summary,.field-error{
+    padding:1rem;
+    border-left:.4rem solid var(--color-error);
+    background:#fff1f0;
+}
+.error-summary h3{
+    margin-top:0;
+}
+.field-error input,.field-error input[aria-invalid="true"]{
+    border-color:var(--color-error);
+}
+.field-error strong{
+    color:#992018;
+}
+#error-message{
+    margin:0;
+    color:#992018;
+}
+button:disabled{
+    background:#e0e0e0;
+    color:#555;
+    border-color:#999;
+    opacity:1;
+    cursor:not-allowed;
+}
+@media (min-width:48rem){
+    .paired-fields{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:1rem;
+    }
+    main{
+        padding:2rem;
+    }
+    fieldset{
+        padding:1.5rem;
+    }
+}
+@media (max-width:320px){
+    main{
+        padding:.75rem;
+    }
+    fieldset,#expectations,#planning,#requirements,#states,#documentation{
+        padding:.75rem;
+    }
+    button{
+        width:100%;
+    }
+}
